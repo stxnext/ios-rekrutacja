@@ -60,11 +60,6 @@
     STPageViewController* pageController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([STPageViewController class])];
     pageController.page = page;
     
-    [self addChildViewController:pageController];
-    
-    [pageController.view setNeedsLayout];
-    [pageController.view layoutIfNeeded];
-    
     return pageController;
 }
 

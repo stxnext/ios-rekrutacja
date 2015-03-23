@@ -19,6 +19,8 @@ static NSString* kCoreDataFetchCachePublishers = @"kCoreDataFetchCachePublishers
 
 @implementation STPublishersTableController
 
+@synthesize fetchedResultsController;
+
 #pragma mark - View controller cycle and transitions
 
 - (void)viewWillAppear:(BOOL)animated

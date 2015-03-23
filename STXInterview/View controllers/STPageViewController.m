@@ -23,7 +23,6 @@
     [super viewWillAppear:animated];
     
     self.textView.text = self.page.content;
-    self.textView.contentOffset = CGPointZero;
 }
 
 @end

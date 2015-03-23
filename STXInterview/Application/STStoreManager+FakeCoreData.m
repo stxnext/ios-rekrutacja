@@ -114,14 +114,6 @@
     [publisher3 addPublicationsObject:book2];
     [publisher3 addPublicationsObject:book3];
     
-    // Save the adding context one level up
-    NSError* error;
-    if (![addingContext save:&error])
-    {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
     // Save the main context
     [self saveContext];
 }

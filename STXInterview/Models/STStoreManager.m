@@ -22,10 +22,10 @@ const static NSString* kData;
 {
     static id singleton;
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (!singleton)
+    {
         singleton = [self new];
-    });
+    }
     
     return singleton;
 }
