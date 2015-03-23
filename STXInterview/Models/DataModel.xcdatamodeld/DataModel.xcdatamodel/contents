@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14D87h" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="STBook" representedClassName="STBook" parentEntity="STPublication" syncable="YES">
+        <attribute name="cover" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="STMagazine" representedClassName="STMagazine" parentEntity="STPublication" syncable="YES">
+        <attribute name="frequency" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="STPage" representedClassName="STPage" syncable="YES">
+        <attribute name="content" attributeType="String" syncable="YES"/>
+        <attribute name="number" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="publication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STPublication" inverseName="pages" inverseEntity="STPublication" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="publication"/>
+                <index value="number"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="STPublication" representedClassName="STPublication" isAbstract="YES" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STPage" inverseName="publication" inverseEntity="STPage" syncable="YES"/>
+        <relationship name="publisher" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="STPublisher" inverseName="publications" inverseEntity="STPublisher" syncable="YES"/>
+    </entity>
+    <entity name="STPublisher" representedClassName="STPublisher" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="publications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="STPublication" inverseName="publisher" inverseEntity="STPublication" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="STBook" positionX="-36" positionY="9" width="128" height="58"/>
+        <element name="STMagazine" positionX="-18" positionY="27" width="128" height="58"/>
+        <element name="STPage" positionX="0" positionY="45" width="128" height="88"/>
+        <element name="STPublication" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="STPublisher" positionX="-63" positionY="-18" width="128" height="88"/>
+    </elements>
+</model>
